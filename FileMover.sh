@@ -1,4 +1,5 @@
 #!/bin/bash
+source "$PWD"/utils.sh
 
 if [[ "$#" -ne 2 ]];
 then
@@ -39,13 +40,10 @@ then
         then
             exit 0
         else
-            mkdir "$2"
+            backup "$1" "$2"
+            rm -rv "$1"
         fi
     fi
-
-    
-
-
-
-
+else
+    mv "$1" "$2"/"$1"
 fi
